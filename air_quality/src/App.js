@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Result from './Result';
+import Result from './pages/Result';
 import {Switch,Route,useHistory} from 'react-router-dom'
 
 const App = () => {
@@ -20,15 +20,16 @@ const App = () => {
     getlocations();
   }, []);
   //let history=useHistory();
-  //const x=locations[0]["id"]
+ 
   
-  const [selected,setSelected]=useState(60);
+  const [selected,setSelected]=useState(0);
 
   return (
     <div className="App">
       <h1>  SENSOR LOCATIONS IN LONDON :</h1>
-      <h2>selected option: {selected}</h2>
+     
       <select value={selected} onChange={(e)=>{setSelected(e.target.value)}}>
+        <option value={0}>Select</option>
         {locations.map(location => ( 
        <option value={location["id"]}>{location["name"]}</option>
         )
@@ -37,12 +38,7 @@ const App = () => {
 
         }
       </select>
-      
-      <button onClick={()=>{
-        console.log("result")
-       // history.push("/Result")
-      }}>search</button>
-
+     
       <Result id={selected} />
     </div>
   );
