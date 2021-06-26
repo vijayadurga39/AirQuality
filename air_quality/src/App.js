@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Result from './pages/Result';
-import {Switch,Route,useHistory} from 'react-router-dom'
+import Bargraph from './pages/Bargraph';
+
 
 const App = () => {
   const [locations, setlocations] = useState([]);
@@ -40,6 +41,7 @@ const App = () => {
       </select>
      
       <Result id={selected} />
+      <Bargraph id={selected} />
     </div>
   );
 };
